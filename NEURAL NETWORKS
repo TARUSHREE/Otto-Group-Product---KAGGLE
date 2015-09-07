@@ -1,0 +1,22 @@
+NEURAL NETWORKS
+
+train3 <- train2[,1:93]
+# include all columns except the class label column
+cm <- names(train3)
+# get the names of all the columns
+library(nnet)
+# include the neural network library ie. nnet
+mod <- nnet(target ~ .,data = train2, size = 5)
+# generate a neural network model with number
+of hidden layers as 5 and train the data.
+ps <- predict(mod,test)
+# predict the test data with the model generated.
+cm1 <- data.frame(cm)
+cm1 <- t(cm1)
+# take the transpose of the result
+mod1 <- data.frame(mod)
+summary(mod)
+write.csv(ps1, file = "subneuralfin.csv", row.names = FALSE)
+mod <- nnet(target ~ .,data = train2, size = 5)
+
+summary(ps)
