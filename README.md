@@ -24,3 +24,7 @@ counts of different events. All features have been obfuscated and will not be de
 There are nine categories for all products. Each target category represents one of our most important
 product categories (like fashion, electronics, etc.). The products for the training and testing sets are
 selected randomly.
+
+# Implementation done using R (RStudio).
+
+
