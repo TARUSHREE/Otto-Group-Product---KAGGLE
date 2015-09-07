@@ -1,0 +1,21 @@
+RANDOM FOREST GENERATION
+
+Random forests are an ensemble learning method for classification, regression and other tasks, that
+operate by constructing a multitude of decision trees at training time and outputting the class that is
+the mode of the classes (classification) or mean prediction (regression) of the individual trees. Random
+forests correct for decision trees' habit of overfitting to their training set.
+install.packages('randomForest')
+# install randomForest package.
+library(randomForest)
+# include random forest library.
+set.seed(12)
+# set a unique seed number so as to get the same results everytime we run
+the below model.
+fit <- randomForest(as.factor(target) ~ ., data=train2, importance=TRUE, ntree=100)
+# create a random forest model using the target field as the response and all 93 features as inputs
+varImpPlot(fit) # create a dotchart of variable/feature importance as measured by a Random Forest
+pred <- predict(fit,test,type="prob")
+# use the random forest model to create a prediction
+submit <- data.frame(id = test$id, pred)
+write.csv(submit, file = "random_forest_submit.csv", row.names = FALSE)
+summary(fit)
