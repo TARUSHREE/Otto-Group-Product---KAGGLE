@@ -1,0 +1,25 @@
+SUPPORT VECTOR MACHINE (SVM)
+
+SVMs use an implicit mapping Φ of the input data into a high-dimensional feature space defined by a
+kernel function.
+The svm() function in e1071 package in R is used.
+
+
+install.packages('e1071')
+# install SVM package
+test2 <- test[,-1]
+# removing the id column
+attach(train2)
+attach(test2)
+library(e1071)
+#include SVM library
+model <- svm( train2$target~., train2 )
+# train the data model with class named 'target'
+res <- predict( model, test2 )
+# predict the classification for test data
+submit <- data.frame(id = test$id, target = res)
+# create a data frame by re combining the result
+with id column
+write.csv(submit, file = "sub.csv", row.names = FALSE)
+sub <- read.csv("C:/Users/sakshi/Desktop/project_sem6/data analysis/otto/sub.csv")
+summary(model)
